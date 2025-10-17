@@ -1,13 +1,13 @@
-# 🧠 DA5401 A6 — Imputation via Regression for Missing Data
+A6 — Imputation via Regression for Missing Data
 
 This repository contains a **Jupyter Notebook (`asgn6.ipynb`)** and a **project report (`DA5401 A6 Imputation via Regression.pdf`)** for Assignment 6 of DA5401.  
 The objective of this assignment is to explore different **imputation strategies** for handling missing data and to evaluate their impact on **classification performance** using Logistic Regression.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
-You are working on a **credit risk assessment project** using the [UCI Credit Card Default Dataset](https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset).  
+We will be working on a **credit risk assessment project** using the [UCI Credit Card Default Dataset](https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset).  
 The dataset has missing values in key columns, which makes it unsuitable for direct training of classification models.
 
 **Goal:**  
@@ -15,17 +15,17 @@ Implement and compare three imputation strategies and a baseline listwise deleti
 
 ---
 
-## 📊 Tasks Overview
+## Tasks Overview
 
 ### **Part A — Data Preprocessing and Imputation**
 1. **Load & Prepare Data**
-   - Artificially introduce Missing At Random (MAR) values (5–10%) in numerical columns (e.g., `AGE` and `BILL_AMT`).
+   - Artificially introduce Missing At Random (MAR) values (5–10%) in numerical columns.
 2. **Imputation Strategy 1 — Simple Imputation (Dataset A)**  
    - Fill missing values with the **median** of each column.
 3. **Imputation Strategy 2 — Linear Regression Imputation (Dataset B)**  
    - Use Linear Regression to predict missing values based on other features.
 4. **Imputation Strategy 3 — Non-Linear Regression Imputation (Dataset C)**  
-   - Use a non-linear model such as **KNN Regression** or **Decision Tree Regression** to predict missing values.
+   - Use a non-linear model such as **KNN Regression** to predict missing values.
 
 ---
 
@@ -41,22 +41,6 @@ Implement and compare three imputation strategies and a baseline listwise deleti
      - Precision
      - Recall
      - F1-score
-
-```python
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-
-yhat = model.predict(X_A_test.values)
-
-accuracy = accuracy_score(y_A_test, yhat)
-precision = precision_score(y_A_test, yhat, average='binary')
-recall = recall_score(y_A_test, yhat, average='binary')
-f1 = f1_score(y_A_test, yhat, average='binary')
-
-print(f"Accuracy:  {accuracy:.4f}")
-print(f"Precision: {precision:.4f}")
-print(f"Recall:    {recall:.4f}")
-print(f"F1-score:  {f1:.4f}")
-```
 
 ---
 
@@ -77,16 +61,16 @@ print(f"F1-score:  {f1:.4f}")
 ## 📈 Expected Outcome
 | Model | Imputation Strategy                | Accuracy | Precision | Recall | F1-score |
 |-------|-------------------------------------|----------|-----------|--------|-----------|
-| A     | Median                             |    –     |     –     |   –    |    –      |
-| B     | Linear Regression                  |    –     |     –     |   –    |    –      |
-| C     | Non-Linear Regression (KNN/DT)     |    –     |     –     |   –    |    –      |
-| D     | Listwise Deletion                  |    –     |     –     |   –    |    –      |
+| A     | Median                             |    0.7585     |     0.5994     |   0.6144    |    0.8062      |
+| B     | Linear Regression                  |    0.7542     |     0.5997     |   0.6147    |    0.8056      |
+| C     | Non-Linear Regression (KNN/DT)     |    0.7546     |     0.6002     |   0.6154    |    0.8058      |
+| D     | Listwise Deletion                  |    0.7641     |     0.6125     |   0.6331    |    0.8164      |
 
 *(Values to be filled based on your run results.)*
 
 ---
 
-## 🧰 Requirements
+##  Requirements
 
 - Python 3.x  
 - Jupyter Notebook  
@@ -101,20 +85,12 @@ pip install numpy pandas scikit-learn jupyter
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
-📦 Project Folder
- ┣ 📜 asgn6.ipynb                # Main Jupyter notebook with code
- ┣ 📜 DA5401 A6 Imputation via Regression.pdf   # Assignment brief
- ┣ 📜 README.md                  # Project documentation
+ Project Folder
+ ┣  asgn6.ipynb                # Main Jupyter notebook with code
+ ┣  UCI_Credit_Card            # Dataset
+ ┣  README.md                  # Project documentation
 ```
 
----
-
-## 📝 Author
-This project was created as part of **DA5401 coursework** to demonstrate the impact of imputation strategies on classification model performance.
-
----
-
-✅ *Tip:* Prefer regression-based imputation when the missingness is MAR and the predictor relationship is strong.
