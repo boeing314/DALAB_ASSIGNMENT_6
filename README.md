@@ -1,4 +1,4 @@
-A6 — Imputation via Regression for Missing Data
+# A6 — Imputation via Regression for Missing Data
 
 This repository contains a **Jupyter Notebook (`asgn6.ipynb`)** and a **project report (`DA5401 A6 Imputation via Regression.pdf`)** for Assignment 6 of DA5401.  
 The objective of this assignment is to explore different **imputation strategies** for handling missing data and to evaluate their impact on **classification performance** using Logistic Regression.
